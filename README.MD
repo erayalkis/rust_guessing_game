@@ -3,6 +3,7 @@
 # Rust Guessing Game
 
 This is a personal version of the [Rust Guessing Game](https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html) tutorial. I've added some personal notes to make things a bit easier to understand for myself and potentially others!
+The files are meant to be read in numerical order, with main.rs containing the final code.
 
 # Setup
 
