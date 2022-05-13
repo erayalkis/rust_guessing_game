@@ -10,11 +10,11 @@ use std::cmp::Ordering;
 fn main() {
     println!("Guess the number!");
 
-    // We generate an random integer with the i32 type
+    // We generate an random integer with the u32 type
     // The gen_range method takes a range expression and generates a number within that range
     // Range expressions take the form of "start..end", end being exclusive. If you want an inclusive range,
         // you can use the "start..=end" syntax instead.
-    let secret_number: i32 = rand::thread_rng().gen_range(1..101);
+    let secret_number: u32 = rand::thread_rng().gen_range(1..101);
     // We could also write this as
         // let secret number: i32 = rand::thread_rng().gen_range(1..=100)
         // 1..=100 includes the maximum value of the range as well, while 1..100 doesn't
@@ -57,18 +57,15 @@ fn main() {
     };
 
     
-    // Uh oh, this throws an error! But why?
-    // Oh, the cmp method expects a String, but we're passing in an i32!
-    // This happens because our guess variable is a String, and to match it against our secret number, 
-         // the number also needs to be a String!
-    // We can fix this by making our guess variable into an i32!
-    // Now, we need to go back and parse our guess variable! See 01.rs
+    // Now our match statement works perfectly! Hooray!
+    // Here, we check our guess against the secret number:
     match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
+        Ordering::Less => println!("Too small!"), // If it's less than the secret, we print "Too small!!"
+        Ordering::Greater => println!("Too big!"), // If it's greater, we print "Too big!"
         Ordering::Equal => {
-            println!("You win!");
-            break;
+            println!("You win!"); // And here, if it's the same as our secret number, our guess is correct!
+            // We print "You win", and
+            break; // We break from the loop! Check main.rs to see the final code!
         }
     }
 
